@@ -1,0 +1,30 @@
+{
+  "dependencies": [
+    "fastgltf",
+    "fmt",
+    "glm",
+    {
+      "name": "imgui",
+      "features": [
+        "sdl2-binding",
+        "vulkan-binding"
+      ]
+    },
+    {
+      "name": "sdl2",
+      "features": [
+        "vulkan"
+      ]
+    },
+    {
+      "name": "sdl2-image",
+      "features": [
+        "libjpeg-turbo"
+      ]
+    },
+    "vk-bootstrap",
+    "vulkan",
+    "vulkan-memory-allocator",
+    "vulkan-utility-libraries"
+  ]
+}

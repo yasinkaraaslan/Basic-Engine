@@ -1,0 +1,91 @@
+﻿{
+    "version": 3,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 22,
+        "patch": 0
+    },
+    "configurePresets": [
+        {
+            "name": "base",
+            "hidden": true,
+            "binaryDir": "${sourceDir}/build/${presetName}",
+            "installDir": "${sourceDir}/install/${presetName}",
+            "generator": "Ninja",
+            "cacheVariables": {
+                "CMAKE_TOOLCHAIN_FILE": {
+                    "type": "FILEPATH",
+                    "value": "C:/Users/yasin/vcpkg/scripts/buildsystems/vcpkg.cmake" // $env{VCPKG_ROOT}/vcpkg/scripts/buildsystems/vcpkg.cmake
+                },
+                "VCPKG_FEATURE_FLAGS": "versions"
+            }
+        },
+        {
+            "name": "linux-release",
+            "displayName": "Linux release",
+            "description": "Configure with Linux release settings",
+            "inherits": "base",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "RelWithDebInfo",
+                "VCPKG_DEFAULT_TRIPLET": "x64-linux"
+            }
+        },
+        {
+            "name": "windows-release",
+            "displayName": "Windows release",
+            "description": "Configure with Windows release settings",
+            "inherits": "base",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "RelWithDebInfo",
+                "VCPKG_DEFAULT_TRIPLET": "x64-windows"
+            }
+        },
+        {
+            "name": "linux-debug",
+            "displayName": "Linux debug",
+            "description": "Configure with Linux debug settings",
+            "inherits": "base",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "VCPKG_DEFAULT_TRIPLET": "x64-linux"
+            }
+        },
+        {
+            "name": "windows-debug",
+            "displayName": "Windows debug",
+            "description": "Configure with Windows debug settings",
+            "inherits": "base",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "VCPKG_DEFAULT_TRIPLET": "x64-windows"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "linux-release",
+            "configurePreset": "linux-release",
+            "displayName": "Linux release",
+            "description": "Build with Linux release settings"
+        },
+        {
+            "name": "windows-release",
+            "configurePreset": "windows-release",
+            "displayName": "Windows release",
+            "description": "Build with Windows release settings"
+        },
+        {
+            "name": "linux-debug",
+            "configurePreset": "linux-debug",
+            "displayName": "Linux debug",
+            "description": "Build with Linux debug settings"
+        },
+        {
+            "name": "windows-debug",
+            "configurePreset": "windows-debug",
+            "displayName": "Windows debug",
+            "description": "Build with Windows debug settings"
+        }
+    ],
+    "testPresets": []
+}
